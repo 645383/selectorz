@@ -1,0 +1,14 @@
+<%= form_with model: @user do |form| %>
+  <p>Please enter your name and pick the Sectors you are currently involved in.</p>
+  
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  
+  <%= form.label :sectors %>
+  <%= form.collection_select :sector_ids, Sector.order(:name), :id, :name, {selected: @user.sector_ids}, {multiple: true, size: 5} %>
+  
+  <%= form.check_box :agree_to_terms %>
+  <%= form.label :agree_to_terms, 'Agree to terms' %>
+  
+  <%= form.submit %>
+<% end %>
