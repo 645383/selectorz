@@ -1,14 +1,32 @@
 <%= form_with model: @user do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>Please enter your name and pick the Sectors you are currently involved in.</p>
   
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+  <div class="form-field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
   
-  <%= form.label :sectors %>
-  <%= form.collection_select :sector_ids, Sector.order(:name), :id, :name, {selected: @user.sector_ids}, {multiple: true, size: 5} %>
+  <div class="form-field">
+    <%= form.label :sectors %>
+    <%= form.collection_select :sector_ids, Sector.order(:name), :id, :name, {selected: @user.sector_ids}, {multiple: true, size: 5} %>
+  </div>
   
-  <%= form.check_box :agree_to_terms %>
-  <%= form.label :agree_to_terms, 'Agree to terms' %>
+  <div class="form-field">
+    <%= form.check_box :agree_to_terms %>
+    <%= form.label :agree_to_terms, 'Agree to terms' %>
+  </div>
   
   <%= form.submit %>
 <% end %>

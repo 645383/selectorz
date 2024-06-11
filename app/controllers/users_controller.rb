@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     @sectors = Sector.all
   end
 
+  def edit
+    @user = User.find(params[:id])
+    @sectors = Sector.all
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -20,11 +25,6 @@ class UsersController < ApplicationController
       @sectors = Sector.all
       render :new
     end
-  end
-
-  def edit
-    @user = User.find(params[:id])
-    @sectors = Sector.all
   end
 
   def update

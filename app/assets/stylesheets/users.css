@@ -1,0 +1,74 @@
+.users {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+.users h1 {
+  text-align: center;
+}
+
+.users label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.users input[type="text"],
+.users select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.users .form-field {
+  margin-bottom: 20px;
+}
+
+.users input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.users input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.users table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user th, .user-form td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.users th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  color: white;
+  background-color: #007BFF;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+}

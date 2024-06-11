@@ -1,32 +1,34 @@
-<h1>Users</h1>
+<div class="users">
+  <h1>Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Sectors</th>
-      <th>Agreed to terms</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= user.name %></td>
-        <td>
-          <% user.sectors.each do |sector| %>
-            <li><%= sector.name %></li>
-          <% end %>
-        </td>
-        <td><%= user.agree_to_terms ? 'Yes' : 'No' %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <th>Name</th>
+        <th>Sectors</th>
+        <th>Agreed to terms</th>
+        <th colspan="3">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td>
+            <% user.sectors.each do |sector| %>
+              <li><%= sector.name %></li>
+            <% end %>
+          </td>
+          <td><%= user.agree_to_terms ? 'Yes' : 'No' %></td>
+          <td><%= link_to 'Show', user, class: 'button' %>
+          <%= link_to 'Edit', edit_user_path(user), class: 'button' %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New User', new_user_path %>
+  <br>
+
+  <%= link_to 'New User', new_user_path, class: 'button' %>
+</div>

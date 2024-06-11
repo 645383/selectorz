@@ -1,19 +1,21 @@
-<p>
+<div class="users">
+  <p>
   <strong>Name:</strong>
   <%= @user.name %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Sectors:</strong>
   <% @user.sectors.each do |sector| %>
     <li><%= sector.name %></li>
   <% end %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Agreed to terms:</strong>
   <%= @user.agree_to_terms ? 'Yes' : 'No' %>
-</p>
+  </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <%= link_to 'Edit', edit_user_path(@user), class: 'button' %>
+  <%= link_to 'Back', users_path, class: 'button'%>
+</div>
