@@ -21,7 +21,6 @@ sectors = options.map do |option|
   id = option.attr('value')
 
   level = name.count("\u00A0") / 4
-  # { name: name.gsub("\u00A0", ''), id: id, level: level }
   [name.gsub("\u00A0", ''), level, id]
 end
 

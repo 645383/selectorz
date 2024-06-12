@@ -1,6 +1,5 @@
 module UsersHelper
-  def nested_sectors_options
-    options = []
+  def nested_sectors_options(options = [])
     generate_nested_sectors_options(Sector.where(parent_id: nil), options)
     options
   end
