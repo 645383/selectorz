@@ -4,27 +4,27 @@
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <p>Please enter your name and pick the Sectors you are currently involved in.</p>
-  
+
   <div class="form-field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, required: true %>
   </div>
-  
+
   <div class="form-field">
     <%= form.label :sectors %>
-    <%= form.collection_select :sector_ids, Sector.order(:name), :id, :name, {selected: @user.sector_ids}, {multiple: true, size: 5} %>
+    <%= form.select :sector_ids, nested_sectors_options, {}, {multiple: true, size: 5, data: { controller: "select", action: "select#disableOptions" }, required: true }  %>
   </div>
   
   <div class="form-field">
-    <%= form.check_box :agree_to_terms %>
+    <%= form.check_box :agree_to_terms, required: true %>
     <%= form.label :agree_to_terms, 'Agree to terms' %>
   </div>
   

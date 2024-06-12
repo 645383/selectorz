@@ -72,3 +72,19 @@
 .button:hover {
   background-color: #45a049;
 }
+
+.level-0 {
+  padding-left: 0;
+}
+
+.level-1 {
+  padding-left: 20px;
+}
+
+.level-2 {
+  padding-left: 40px;
+}
+
+[class^="level-"]:not(.level-0):not(.level-1):not(.level-2) {
+  padding-left: 60px;
+}
