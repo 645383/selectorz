@@ -18,17 +18,20 @@ options = doc.css('option')
 
 sectors = options.map do |option|
   name = option.text.strip
+  id = option.attr('value')
+
   level = name.count("\u00A0") / 4
-  [name.gsub("\u00A0", ''), level]
+  # { name: name.gsub("\u00A0", ''), id: id, level: level }
+  [name.gsub("\u00A0", ''), level, id]
 end
 
-sectors.each_with_index do |(name, level), i|
+sectors.each_with_index do |(name, level, _id), i|
   parent = nil
   if level > 0
     j = i - 1
     while j >= 0
       if sectors[j][1] < level
-        parent = Sector.find_by(name: sectors[j][0])
+        parent = Sector.where(name: sectors[j][0]).last
         break
       end
       j -= 1

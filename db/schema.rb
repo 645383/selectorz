@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_11_123113) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_12_090320) do
   create_table "sectors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "parent_id"
+    t.index ["name", "parent_id"], name: "index_sectors_on_name_and_parent_id", unique: true
   end
 
   create_table "sectors_users", force: :cascade do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_123113) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "agree_to_terms"
+    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
   add_foreign_key "sectors_users", "sectors"
